@@ -1,0 +1,203 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+ 
+:root {
+  --green:       #3ECC6A;
+  --green-dark:  #2db85a;
+  --orange:      #E8663D;
+  --orange-dark: #d05530;
+  --teal:        #1FBFA4;
+  --teal-dark:   #18a98f;
+  --bg:          #5B6EE8;
+  --white:       #ffffff;
+  --text:        #444;
+  --muted:       #888;
+  --border:      #efefef;
+}
+ 
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--bg);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 20px;
+}
+ 
+/* ===== Grid container ===== */
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+  max-width: 1060px;
+  width: 100%;
+}
+ 
+/* ===== Card ===== */
+.card {
+  background: var(--white);
+  border-radius: 10px;
+  width: 300px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+ 
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.22);
+}
+ 
+/* ===== Header com chevron ===== */
+.header {
+  position: relative;
+  padding: 28px 20px 56px;
+  text-align: center;
+  color: var(--white);
+}
+ 
+/* Chevron / seta apontando para baixo */
+.header::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 60px solid transparent;
+  border-right: 60px solid transparent;
+}
+ 
+/* Cores dos headers */
+.header--green  { background: var(--green);  }
+.header--orange { background: var(--orange); }
+.header--teal   { background: var(--teal);   }
+ 
+/* Chevron colorido igual ao header */
+.header--green::after  { border-top: 36px solid var(--green);  }
+.header--orange::after { border-top: 36px solid var(--orange); }
+.header--teal::after   { border-top: 36px solid var(--teal);   }
+ 
+/* ===== Texts in header ===== */
+.plan-name {
+  font-size: 1.55rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+}
+ 
+.price {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  line-height: 1;
+  gap: 1px;
+}
+ 
+.dollar {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-top: 6px;
+}
+ 
+.amount {
+  font-size: 3.2rem;
+  font-weight: 800;
+  line-height: 1;
+}
+ 
+.cents {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-top: 8px;
+}
+ 
+/* ===== Body ===== */
+.body {
+  padding: 40px 28px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex: 1;
+}
+ 
+/* ===== Description ===== */
+.desc {
+  font-size: 0.88rem;
+  color: var(--muted);
+  text-align: center;
+  line-height: 1.55;
+}
+ 
+/* ===== Features list ===== */
+.features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--border);
+}
+ 
+.features li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.88rem;
+  color: var(--text);
+  font-weight: 500;
+}
+ 
+/* ===== Check / cross icons ===== */
+.icon {
+  font-size: 0.85rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+ 
+.icon.yes { color: var(--green);  }
+.icon.no  { color: #e74c3c;       }
+ 
+/* ===== Purchase button ===== */
+.btn {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  border-radius: 6px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-align: center;
+  text-decoration: none;
+  color: var(--white);
+  margin-top: auto;
+  transition: filter 0.2s ease, transform 0.15s ease;
+}
+ 
+.btn:hover {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+}
+ 
+.btn:active {
+  transform: scale(0.98);
+}
+ 
+.btn--green  { background: var(--green);  }
+.btn--orange { background: var(--orange); }
+.btn--teal   { background: var(--teal);   }
+ 
+/* ===== Responsive ===== */
+@media (max-width: 680px) {
+  .card { width: 100%; max-width: 340px; }
+}
+ 
